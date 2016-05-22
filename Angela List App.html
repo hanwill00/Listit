@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>
-            <h1>My Bags</h1>
-        </title>
+  <head>
+    <title> My Bags</title>
 
         <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
 
@@ -15,8 +13,8 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<style type = "text/css"> 
-		      .navBar{position: :center;}
+    <style type = "text/css"> 
+          .navBar{position: center;}
               .add-btn
               {
                 background-color: rgba(209, 209, 209, 0.49);
@@ -64,12 +62,15 @@
               }
 
 
-		</style>
-	</head>
+    </style>
+  </head>
+<header>
 
-	<body class = "container">
+</header>
+  <body class = "container">
+        
         <div class = "navBar">
-            <nav class="navbar navbar-default">
+            <nav class="navbar navbar-default navbar-fixed-top">
               <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -123,43 +124,37 @@
               </div><!-- /.container-fluid -->
             </nav>
         </div>
-        
+        <br><br><br>
         <div class="row">
+            <div class="random">
             <div class="col-xs-6">
                 <a href="#" class="thumbnail blue-btn">
                      <img src="https://freeiconshop.com/files/edd/shopping-bag-outline.png" class="bagIcon">
                 </a>
             </div>
-            <div class="col-xs-6">
-                <a href="#" class="thumbnail purple-btn">
-                     <img src="https://freeiconshop.com/files/edd/shopping-bag-outline.png" class="bagIcon">
-                </a>
-            </div>
-            <div class="col-xs-6">
-                <a href="#" class="thumbnail green-btn">
-                     <img src="https://freeiconshop.com/files/edd/shopping-bag-outline.png" class="bagIcon">
-                </a>
-            </div>
-            <div class="col-xs-6">
-                <a href="#" class="thumbnail orange-btn">
-                     <img src="https://freeiconshop.com/files/edd/shopping-bag-outline.png" class="bagIcon">
-                </a>
-            </div>
-            <div class="col-xs-6">
-                <a href="#" class="thumbnail blue-btn">
-                     <img src="https://freeiconshop.com/files/edd/shopping-bag-outline.png" class="bagIcon">
-                </a>
             </div>
              <div class="col-xs-6">
-                <a href="#" class="thumbnail add-btn">
+                <a href="#" class="thumbnail add-btn" onclick="dup()">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
             </div>
         </div>
 
-		</a>
+    </a>
         <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script>
+/*for(var i =1;i<=numBags;i++)
+  {var newDiv = document.createElement('.col-xs-6');
+newDiv.id newDiv.className ="bag"; }
+*/
+function dup()
+{
+  var abc = document.getElementsByClassName("col-xs-6");
+  var c = document.createElement('div');
+  var d = $ (abc[0]).clone();
+  $(d).appendTo('.random');
 
-	</body>
+}
+  </script>
+  </body>
 </html>
-
