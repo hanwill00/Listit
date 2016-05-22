@@ -124,19 +124,19 @@ s              {
          </div>
   </body>
   <script>
-  var itemname =""
-  function askForName()
-  {
-    itemname = prompt("Please enter the name of the item:");
-  }
-  function dup()
-{
-  askForName();
-  var abc = document.getElementsByClassName("col-xs-12");
-  var c = document.createElement('div');
-  var d = $ (abc[0]).clone();
-  $(d).appendTo('.random');
-}
-$(".glyphicon glyphicon-remove-circle").click(function(){$(".test").empty();});
+    var itemname =""
+    function askForName()
+    {
+      itemname = prompt("Please enter the name of the item:");
+    }
+    function dup()
+    {
+      askForName();
+      var abc = document.getElementsByClassName("col-xs-12");
+      var c = document.createElement('div');
+      var d = $ (abc[0]).clone();
+      $(d).appendTo('.random');
+    }
+    $(".glyphicon glyphicon-remove-circle").click(function(){$(".test").empty();});
   </script>
 </html>
