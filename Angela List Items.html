@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>
-            <h1>My Bags</h1>
+  <head>
+    <title>
+            My Items
         </title>
 
         <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
@@ -15,10 +15,10 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<style type = "text/css"> 
-		      .navBar{position: :center;}
+    <style type = "text/css"> 
+          .navBar{position: :center;}
               .add-btn
-              {
+s              {
                 background-color: rgba(209, 209, 209, 0.49);
                 border-radius: 0px;
                 padding-top: 15px;
@@ -46,10 +46,10 @@
                 height: 50%;
               }
 
-		</style>
-	</head>
+    </style>
+  </head>
 
-	<body class = "container">
+  <body class = "container">
         <div class = "navBar">
               <nav class="navbar navbar-default">
               <div class="container-fluid">
@@ -107,37 +107,39 @@
         </div>
         
         <div class="row">
+        <div class="random">
+        <div class ="test">
             <div class="col-xs-12">
                 <a href="#" class="thumbnail solid-btn">
                       <strong style="color: rgba(87, 87, 87, 1)">Item</strong>
                       <span class="glyphicon glyphicon-remove-circle pull-right" aria-hidden="true"></span>
                 </a>
             </div>
-        <div class="col-xs-12">
-                <a href="#" class="thumbnail solid-btn">
-                      <strong style="color: rgba(87, 87, 87, 1)">Item</strong>
-                      <span class="glyphicon glyphicon-remove-circle pull-right" aria-hidden="true"></span>
-                </a>
-        </div>
-        <div class="col-xs-12">
-                <a href="#" class="thumbnail solid-btn">
-                      <strong style="color: rgba(87, 87, 87, 1)">Item</strong>
-                      <span class="glyphicon glyphicon-remove-circle pull-right" aria-hidden="true"></span>
-                </a>
-        </div>
-        <div class="col-xs-12">
-                <a href="#" class="thumbnail solid-btn">
-                      <strong style="color: rgba(87, 87, 87, 1)">Item</strong>
-                      <span class="glyphicon glyphicon-remove-circle pull-right" aria-hidden="true"></span>
-                </a>
+            </div>
+            </div>
+      </a>
         </div>
          <div class="col-xs-12">
                 <a href="#" class="thumbnail add-btn" >
-                      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                      <span class="glyphicon glyphicon-plus" aria-hidden="true" onclick="dup()"></span>
                 </a>
             </div>
         </div>
-	</body>
-  
+  </body>
+  <script>
+  var itemname =""
+  function askForName()
+  {
+    itemname = prompt("Please enter the name of the item:");
+  }
+  function dup()
+{
+  askForName();
+  var abc = document.getElementsByClassName("col-xs-12");
+  var c = document.createElement('div');
+  var d = $ (abc[0]).clone();
+  $(d).appendTo('.random');
+}
+$(".glyphicon glyphicon-remove-circle").click(function(){$(".test").empty();});
+  </script>
 </html>
-
