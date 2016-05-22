@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+            My Items
+        </title>
+
+        <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style type = "text/css"> 
+          .navBar{position: :center;}
+              .add-btn
+              {
+                background-color: rgba(209, 209, 209, 0.49);
+                border-radius: 0px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+              }
+              .solid-btn
+              {
+                background-color: rgba(255, 234, 227, 1);
+                border-radius: 0px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+              }
+              .navbar-default
+              {
+                background-color: rgba(255, 234, 227, 1));
+                border-radius: 0px;
+              }
+              .glyphicon .glyphicon-plus
+              {
+                margin: 0 0 0 50px;
+              }
+              .bagIcon{
+                color: rgba(255, 255, 255, 1);
+                width: 50%;
+                height: 50%;
+              }
+    </style>
+  </head>
+
+  <body class = "container">
+        <div class = "navBar">
+              <nav class="navbar navbar-default">
+              <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#">My Bags</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="Test Sid Main.html">Home <span class="sr-only">(current)</span></a></li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reminders<span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="Add Reminder.html">Add Reminder</a></li>
+                        <li><a href="#">Another action</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="Settings.html">Settings</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Account Info</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Logout</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div><!-- /.navbar-collapse -->
+              </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+        
+        <div class="row">
+        <div class="random">
+        <div class ="test">
+            <div class="col-xs-12" >
+                <a href="#" class="thumbnail solid-btn" id="#copy">
+                      <strong style="color: black">Item</strong> <button onclick="displayDate()" type="button" class="btn btn-primary">time</button><p id="demo"></p>
+                      <span class="glyphicon glyphicon-remove-circle pull-right" onclick="ddelete()" style="color:  rgba(87, 87, 87, 1)" aria-hidden="true"></span>
+                </a>
+            </div>
+            </div>
+      </a>
+        </div>
+         <div class="col-xs-12">
+                <a href="#" class="thumbnail add-btn" onclick="dup()" style="border-radius: 0px">
+                      <span class="glyphicon glyphicon-plus" style="color: rgba(87, 87, 87, 1" aria-hidden="true"></span>
+                </a>
+         </div>
+  </body>
+  <script>
+    var name="";
+    var itemname ="";
+    function displayDate() 
+    {
+      document.getElementById("demo").innerHTML = Date();
+
+      document.getElementById(name).innerHTML = Date();
+    }
+
+    function changeColor()
+    {
+
+    }
+    
+    function dup()
+    {
+      //askForName();
+      var abc = document.getElementsByClassName("col-xs-12");
+      var c = document.createElement('div');
+      var d = $ (abc[0]).clone();
+      var elem = $(d);
+      name= askForName();
+
+      //Find the element and replace it with new HTML
+      elem.find('a').replaceWith('<a href="#" class="thumbnail solid-btn" id="#'+name+'"> <strong style="color: black">'+name+'</strong> <button onclick="displayDate()" type="button" class="btn btn-primary">time</button><p id="'+name+'"></p><span class="glyphicon glyphicon-remove-circle pull-right" onclick="ddelete()" style="color:  rgba(87, 87, 87, 1)" aria-hidden="true"></span></a>');
+
+      $(d).appendTo('.random');
+    }
+    function askForName()
+    {
+      itemname = prompt("Name of your item:");
+      return itemname;
+    }
+    function ddelete()
+    {
+      var abcd = document.getElementsByClassName("col-xs-12");
+       var c = document.getElementById(name);
+      abcd.removeChild(c);
+
+    }
+    //$(".glyphicon glyphicon-remove-circle").click(ddelete(name));
+  </script>
+</html>
