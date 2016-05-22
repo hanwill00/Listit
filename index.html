@@ -1,15 +1,114 @@
 <!DOCTYPE html>
-<html>
-    
-    <head>
-	    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-	    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400;300' rel='stylesheet' type='text/css'>
-	    <link href='style.css' rel='stylesheet'>
-        <title>Angela's project<title>
-        <link rel="stylesheet" href="main.css">
-    </head>
-    <body>
-       
+<head><title>Angela's Checklist</title>
+<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/ui/0.4.0/firebase-ui-auth.js"></script>
+<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/0.4.0/firebase-ui-auth.css" />
+    <script src="firebase-app.js"></script>
+    <script src="firebase-auth.js"></script>
+    <script src="firebase-ui-auth.js"></script>
+     <script>
+    var config = {
+    apiKey: "AIzaSyAQ_4aLOT4il-r7TU-EEc9Itl2to5IeFQs",
+    authDomain: "codeday-project.firebaseapp.com",
+    databaseURL: "https://codeday-project.firebaseio.com",
+    storageBucket: "codeday-project.appspot.com",
+	 };
+	    // FirebaseUI config.
+      var uiConfig = {
+        'signInSuccessUrl': '<url-to-redirect-to-on-success>',
+        'signInOptions': [
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+          firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+          firebase.auth.GithubAuthProvider.PROVIDER_ID,
+          firebase.auth.EmailAuthProvider.PROVIDER_ID
+        ],
         
-    </body>
+      };
+
+      // Initialize the FirebaseUI Widget using Firebase.
+      var app = firebase.initializeApp(config);
+      var auth = app.auth();
+      var ui = new firebaseui.auth.AuthUI(auth);
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+    <link type="text/css" rel="stylesheet" href="firebase-ui-auth.css" />
+
+</head>
+<style>
+	h1{start}
+</style>
+<body>
+<div id="firebaseui-auth-container"></div>
+
+<form>
+Sign up!
+<input type="email" placeholder ="Your email" id="email"><br>
+<input type="text" placeholder="Your Name" id="name"><br>
+<input type="text" placeholder="Username" id="Username"><br>
+<input type="submit" value="submit" onclick="success(), signUp()">
+</form>
+<form>
+Add an item:<input type="text" id="item">
+<input type="button" value="Save/Show" onclick="addToList()">
+</form>
+<div id="display"></div>
+</body>
+
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+<script>
+var provider = new firebase.auth.GoogleAuthProvider();
+var itemInput = document.getElementById("item");
+var list = ["Item 1","Item 2","Item 3"];
+var display = document.getElementById("display");
+var username1 = document.getElementById("Username").value;
+var identity = document.getElementById("name").value;
+var email1 = document.getElementById("email".value);
+  // Initialize Firebase
+
+  function addToList()
+  {  list.push(itemInput.value);
+  	clearAndShow();
+  };
+  function clearAndShow()
+  {
+  	itemInput.value="";
+  	display.innerHTML="";
+  	display.innerHTML+="Your List Includes: " + list.join(", ");
+  }
+  function success(){confirm("Thanks for signing up!");}
+  ;
+
+//Write user data method from firebase here
+function writeUserData(userId, name, email) {
+  firebase.database().ref('users/' + userId).set({
+  	name=identity;
+  	email=email1;
+    username: name,
+    email: email
+  });
+}
+firebase.auth().signInWithPopup(provider).then(function(result) {
+  // This gives you a Google Access Token. You can use it to access the Google API.
+  var token = result.credential.accessToken;
+  // The signed-in user info.
+  var user = result.user;
+  // ...
+}).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // The email of the user's account used.
+  var email = error.email;
+  // The firebase.auth.AuthCredential type that was used.
+  var credential = error.credential;
+  // ...
+});
+</script>
 </html>
